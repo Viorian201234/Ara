@@ -376,7 +376,6 @@ async function starts() {
 					buffer = await getBuffer(anu.mp4direct)
 					client.sendMessage(from, buffer, video, {quoted: mek})
 					break
-				case 'nulis':
 				case 'tulis':
 					if (args.length < 1) return reply('Yang mau di tulis apaan?')
 					teks = body.slice(7)
@@ -384,7 +383,7 @@ async function starts() {
 					anu = await fetchJson(`https://cuans-apis.herokuapp.com/api/nulis?text=${teks}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					buff = await getBuffer(anu.result)
-					client.sendMessage(from, buff, image, {quoted: mek, caption: mess.success})
+					client.sendMessage(from, buff, image, {mimetype: 'data:image/jpeg;base64'} {quoted: mek, caption: mess.success})
 					break
 				case 'tagall':
 					if (!isGroup) return reply(mess.only.group)
