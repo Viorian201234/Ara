@@ -23,7 +23,7 @@ const loli = new lolis()
 const welkom = JSON.parse(fs.readFileSync('./src/welkom.json'))
 const nsfw = JSON.parse(fs.readFileSync('./src/nsfw.json'))
 const samih = JSON.parse(fs.readFileSync('./src/simi.json'))
-prefix = '#'
+prefix = '.'
 blocked = []
 
 function kyun(seconds){
@@ -347,8 +347,7 @@ async function starts() {
 					anu = await fetchJson(`https://cuans-apis.herokuapp.com/api/randomquotes`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					teks = `*Quotes* : ${anu.quotes}`
-					client.sendMessage(from, teks)
-					break
+					reply(teks)
 				case 'ytmp3':
 					if (args.length < 1) return reply('Urlnya mana um?')
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
