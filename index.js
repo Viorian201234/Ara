@@ -23,7 +23,7 @@ const loli = new lolis()
 const welkom = JSON.parse(fs.readFileSync('./src/welkom.json'))
 const nsfw = JSON.parse(fs.readFileSync('./src/nsfw.json'))
 const samih = JSON.parse(fs.readFileSync('./src/simi.json'))
-prefix = '.'
+prefix = '!'
 blocked = []
 
 function kyun(seconds){
@@ -78,7 +78,7 @@ async function starts() {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Babay @${num.split('@')[0]}👋`
+				teks = `Good bye beban keluarga @${num.split('@')[0]}👋`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			}
@@ -115,9 +115,9 @@ async function starts() {
 			const isCmd = body.startsWith(prefix)
 
 			mess = {
-				wait: '⌛ Sedang di Prosess ⌛',
-				success: '✔️ Berhasil ✔️',
-				error: {
+				wait: 'MOHON TUNGGU 😉',
+				success: '✔️ DONE 😄 ✔️',
+				error: 
 					stick: '❌ Gagal, terjadi kesalahan saat mengkonversi gambar ke sticker ❌',
 					Iv: '❌ Link tidak valid ❌'
 				},
@@ -383,7 +383,7 @@ async function starts() {
 					anu = await fetchJson(`https://cuans-apis.herokuapp.com/api/nulis?text=${teks}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					buff = await getBuffer(anu.result)
-					client.sendMessage(from, buff, image, {mimetype: 'data:image/jpeg;base64'} {quoted: mek, caption: mess.success})
+					client.sendMessage(from, buff, image, {quoted: mek, caption: mess.success})
 					break
 				case 'tagall':
 					if (!isGroup) return reply(mess.only.group)
